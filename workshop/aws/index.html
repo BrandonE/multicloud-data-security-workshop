@@ -1,0 +1,821 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SANS Multi Cloud Data Security Workshop">
+      
+      
+        <meta name="author" content="Brandon Evans">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>AWS - SANS Multi Cloud Data Security Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Source Code Pro"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/jquery.fancybox.min.css">
+    
+      <link rel="stylesheet" href="../../css/pdf.css">
+    
+      <link rel="stylesheet" href="../../css/html.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SANS Multi Cloud Data Security Workshop" class="md-header__button md-logo" aria-label="SANS Multi Cloud Data Security Workshop" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3 8 6v12h-5v-7H9v7H4V9l8-6Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SANS Multi Cloud Data Security Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Workshop
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../resources/" class="md-tabs__link">
+      Resources
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SANS Multi Cloud Data Security Workshop" class="md-nav__button md-logo" aria-label="SANS Multi Cloud Data Security Workshop" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3 8 6v12h-5v-7H9v7H4V9l8-6Z"/></svg>
+
+    </a>
+    SANS Multi Cloud Data Security Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Workshop</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Workshop" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Workshop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          AWS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        AWS
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-an-aws-account" class="md-nav__link">
+    Initialize an AWS Account
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-s3-bucket-and-upload-the-mock-data" class="md-nav__link">
+    Create an S3 Bucket and Upload the Mock Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-macie-job" class="md-nav__link">
+    Create a Macie Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refine-the-job" class="md-nav__link">
+    Refine the Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminate-cloud-resources-and-instance" class="md-nav__link">
+    Terminate Cloud Resources and Instance
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminate Cloud Resources and Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-macie" class="md-nav__link">
+    Disable Macie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-s3-bucket" class="md-nav__link">
+    Delete S3 Bucket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#close-account" class="md-nav__link">
+    Close Account
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google/" class="md-nav__link">
+        Google Cloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-an-aws-account" class="md-nav__link">
+    Initialize an AWS Account
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-s3-bucket-and-upload-the-mock-data" class="md-nav__link">
+    Create an S3 Bucket and Upload the Mock Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-macie-job" class="md-nav__link">
+    Create a Macie Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refine-the-job" class="md-nav__link">
+    Refine the Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminate-cloud-resources-and-instance" class="md-nav__link">
+    Terminate Cloud Resources and Instance
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminate Cloud Resources and Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-macie" class="md-nav__link">
+    Disable Macie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-s3-bucket" class="md-nav__link">
+    Delete S3 Bucket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#close-account" class="md-nav__link">
+    Close Account
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="aws">AWS</h1>
+<h2 id="initialize-an-aws-account">Initialize an AWS Account</h2>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p>Even when using a free-tier cloud account, AWS charges a small amount for some of the resources we will be creating in this workshop. You should expect a negligible bill for the resources you create in this workshop. To guarantee that additional bills will not accumulate, consider <a href="https://aws.amazon.com/premiumsupport/knowledge-center/close-aws-account/" rel="noopener" target="_blank">closing your account</a> at the conclusion of the workshop.</p>
+<p><strong>You must not use a cloud account with existing personal or corporate resources.</strong> We will be uploading sensitive files that should not be in production environments.</p>
+</div>
+<ol>
+<li>
+<p>Browse to the <a href="https://console.aws.amazon.com/console/home" rel="noopener" target="_blank">AWS Web Console</a>.</p>
+</li>
+<li>
+<p>If you have not created an account already, sign up for a new account now.</p>
+<ul>
+<li>
+<p>Press the <strong>Create a New AWS Account</strong> button.</p>
+</li>
+<li>
+<p>Fill out the form to sign up for a new free tier account.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sign in with the root account's username (email address or mobile number) and password, and then press the sign in button.</p>
+<p><img alt="" src="img/0001.png" /></p>
+</li>
+<li>
+<p>After signing in, the console will redirect to the home screen where you can browse the available AWS services.</p>
+</li>
+</ol>
+<h2 id="create-an-s3-bucket-and-upload-the-mock-data">Create an S3 Bucket and Upload the Mock Data</h2>
+<ol>
+<li>
+<p>In the AWS Console, type <strong>S3</strong> in the search bar and click the first result:</p>
+<p><img alt="" src="img/go-to-s3.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create bucket</strong>:</p>
+<p><img alt="" src="img/create-bucket.png" /></p>
+</li>
+<li>
+<p>Give the bucket a globally unique name, such as <em>sans-multicloud-data-workshop-**YOUR_NAME**</em>. If the resulting bucket name is more than 63 characters, please abbreviate:</p>
+<p><img alt="" src="img/bucket-name.png" /></p>
+</li>
+<li>
+<p>Scroll to the bottom of the page, <strong>do not change any settings</strong>, and click <strong>Create bucket</strong>:</p>
+<p><img alt="" src="img/create-bucket-confirm.png" /></p>
+</li>
+<li>
+<p>Click on the newly created bucket:</p>
+<p><img alt="" src="img/select-bucket.png" /></p>
+</li>
+<li>
+<p>Click <strong>Upload</strong>:</p>
+<p><img alt="" src="img/upload.png" /></p>
+</li>
+<li>
+<p>Click <strong>Add files</strong>, select the <em>MOCK_DATA*.csv</em> files generated earlier, and click <strong>Upload</strong>:</p>
+<p><img alt="" src="img/upload-confirm.png" /></p>
+</li>
+</ol>
+<h2 id="create-a-macie-job">Create a Macie Job</h2>
+<ol>
+<li>
+<p>In the AWS Console, type <strong>Macie</strong> in the search bar and click the first result:</p>
+<p><img alt="" src="img/go-to-macie.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create job</strong>:</p>
+<p><img alt="" src="img/create-job.png" /></p>
+</li>
+<li>
+<p>Refresh the results until you see your newly created bucket. Then, select it and click <strong>Next</strong>:</p>
+<p><img alt="" src="img/select-bucket-for-job.png" /></p>
+</li>
+<li>
+<p>Click <strong>Next</strong> again to go to Step 3. In a real environment, we would likely want to continuously audit for sensitive data on a schedule. However, for this workshop, we only need to scan on-demand. Select <strong>One-time job</strong> and click <strong>Next</strong>:</p>
+<p><img alt="" src="img/one-time-job.png" /></p>
+</li>
+<li>
+<p>Click <strong>Next</strong> three more times <strong>without changing any settings</strong>. Then, give the job any name you want (e.g., Test), click <strong>Next</strong>, scroll down to the bottom of the page, and click <strong>Submit</strong>:</p>
+<p><img alt="" src="img/submit-job.png" /></p>
+</li>
+<li>
+<p>This job will take roughly 10-15 minutes to complete. Refresh periodically until the <em>Status</em> goes from <strong>Active (Running)</strong> to <strong>Complete</strong>. If desired, you can move onto another cloud provider in the workshop in the meantime. Then, click <strong>Findings</strong> on the sidebar:</p>
+<p><img alt="" src="img/findings.png" /></p>
+</li>
+<li>
+<p>Click on one of the findings and look at the sensitive data detected:</p>
+<p><img alt="" src="img/finding-data.png" /></p>
+</li>
+<li>
+<p>Click on the number next to <strong>Name</strong> under <strong>Personal information</strong> to see which cells it flagged as containing names.</p>
+</li>
+</ol>
+<p>We can make a couple of interesting conclusions based on these results:</p>
+<ul>
+<li>Despite the fact that our first two spreadsheets contain 1,000 full names, <strong>Macie found far fewer</strong>.<ul>
+<li>Macie only believes that some of these "names" are names based on the names it has seen previously. For example, we found that it detected the common name "Ian", but not the less common name "Elsy". This indicates that Macie may be less effective at finding names not commonly used in the United States. In fact, Amazon Macie's documentation states that it is "<a href="https://docs.aws.amazon.com/macie/latest/user/managed-data-identifiers.html#managed-data-identifiers-pii">limited to Latin character sets</a>".</li>
+<li>Macie appears to be evaluating each chunk of data independently of the context. Given that the second column is called "first_name", it is obvious to a human that the entire column should be treated at least as sensitively as a first name.</li>
+</ul>
+</li>
+<li>Macie is not considering the "email" values to be sensitive.</li>
+<li>Most critically, <strong>Macie is not flagging <a href="https://www.cms.gov/medicare/coding/icd10">ICD-10 Diagnosis Codes</a> as sensitive</strong>. While <a href="https://revenuecycleadvisor.com/news-analysis/qa-are-patient-diagnoses-alone-considered-be-phi">these codes are not considered Personal Health Information (PHI) by itself</a>, coupled with names, this information is highly private.</li>
+</ul>
+<h2 id="refine-the-job">Refine the Job</h2>
+<p>Let us create a custom identifier to detect the ICD-10 Diagnosis Codes in our second spreadsheet.</p>
+<ol>
+<li>
+<p>Create a new job, repeating all of the same steps until reaching <strong>Step 4</strong>. Then, click <strong>Manage custom identifiers</strong>:</p>
+<p><img alt="" src="img/manage-custom-identifiers.png" /></p>
+</li>
+<li>
+<p>In the <strong>newly opened window</strong>, click <strong>Create</strong> to create a new custom data identifier:</p>
+<p><img alt="" src="img/create-identifier.png" /></p>
+</li>
+<li>
+<p>Give the custom data identifier the name <strong>ICD-10 Diagnosis Code</strong> and paste the following (<a href="https://www.johndcook.com/blog/2019/05/05/regex_icd_codes/" rel="noopener" target="_blank">Source</a>) into the <strong>Regular expression</strong> field:</p>
+<div class="highlight"><pre><span></span><code>[A-TV-Z][0-9][0-9AB]\.?[0-9A-TV-Z]{0,4}
+</code></pre></div>
+</li>
+<li>
+<p>To confirm our RegEx works, paste these five CSV records into the <strong>Sample data</strong> section and hit <strong>Test</strong></p>
+<div class="highlight"><pre><span></span><code>id,first_name,last_name,email,gender,ip_address,diagnosis_code,ein,favorite_movie,favorite_movie_genre
+1,Moshe,Tolefree,mtolefree0@imageshack.us,Male,111.207.126.6,G3185,49-6935923,A Flintstones Christmas Carol,Animation|Children|Comedy
+2,Jacqui,Harbour,jharbour1@home.pl,Non-binary,152.80.84.54,T43693,44-6915050,Forgotten Silver,Comedy|Documentary
+3,Koo,Readitt,kreaditt2@tripadvisor.com,Female,25.241.0.38,S061X2A,49-5315541,&quot;Alamo, The&quot;,Drama|War|Western
+4,Annetta,Moultrie,amoultrie3@msu.edu,Female,214.224.120.104,H6123,62-5428600,Nine Ways to Approach Helsinki (Yhdeksän tapaa lähestyä Helsinkiä),Documentary
+5,Oralie,Halversen,ohalversen4@networksolutions.com,Female,239.220.166.49,S52501S,79-7959398,Those Awful Hats,Comedy
+</code></pre></div>
+</li>
+<li>
+<p>You should get <strong>5 matches</strong>. Then, click <strong>Submit</strong>:</p>
+<p><img alt="" src="img/create-identifier-confirm.png" /></p>
+</li>
+<li>
+<p><strong>Return to the original window</strong>. Hit the refresh button, select the newly created identifier, and click <strong>Next</strong>:</p>
+<p><img alt="" src="img/select-custom-identifier.png" /></p>
+</li>
+<li>
+<p>Click <strong>Next</strong> two more times <strong>without changing any settings</strong>, give the job any name, click <strong>Next</strong>, scroll down, and click <strong>Submit</strong>.</p>
+</li>
+<li>
+<p>This job will also take roughly 10-15 minutes to complete. Refresh periodically until the <em>Status</em> goes from <strong>Active (Running)</strong> to <strong>Complete</strong>. If desired, you can move onto another cloud provider in the workshop in the meantime. Then, analyze the findings like before. Did you get the results you expected?</p>
+</li>
+</ol>
+<h2 id="terminate-cloud-resources-and-instance">Terminate Cloud Resources and Instance</h2>
+<h3 id="disable-macie">Disable Macie</h3>
+<ol>
+<li>
+<p>In the AWS Console, return to Macie and click <strong>Settings</strong>:</p>
+<p><img alt="" src="img/macie-settings.png" /></p>
+</li>
+<li>
+<p>Scroll to the bottom of the page, click <strong>Disable Macie</strong>, and confirm:</p>
+<p><img alt="" src="img/disable-macie.png" /></p>
+</li>
+</ol>
+<h3 id="delete-s3-bucket">Delete S3 Bucket</h3>
+<p>In the AWS Console, return to S3, select the bucket used in this workshop, <strong>Empty</strong> it, then <strong>Delete</strong> it:</p>
+<p><img alt="" src="img/clear-s3.png" /></p>
+<h3 id="close-account">Close Account</h3>
+<p>To guarantee that additional bills will not accumulate, consider <a href="https://aws.amazon.com/premiumsupport/knowledge-center/close-aws-account/" rel="noopener" target="_blank">closing your account</a> at the conclusion of the workshop. Alternatively, feel free to keep this account for future testing.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Getting Started
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../azure/" class="md-footer__link md-footer__link--next" aria-label="Next: Azure" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Azure
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©2023 Brandon Evans
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+        <script src="../../js/jquery.fancybox.min.js"></script>
+      
+        <script src="../../js/workbook.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>

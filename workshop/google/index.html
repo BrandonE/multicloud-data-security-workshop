@@ -1,0 +1,778 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SANS Multi Cloud Data Security Workshop">
+      
+      
+        <meta name="author" content="Brandon Evans">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Google Cloud - SANS Multi Cloud Data Security Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Source Code Pro"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/jquery.fancybox.min.css">
+    
+      <link rel="stylesheet" href="../../css/pdf.css">
+    
+      <link rel="stylesheet" href="../../css/html.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#google-cloud" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SANS Multi Cloud Data Security Workshop" class="md-header__button md-logo" aria-label="SANS Multi Cloud Data Security Workshop" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3 8 6v12h-5v-7H9v7H4V9l8-6Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SANS Multi Cloud Data Security Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Google Cloud
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Workshop
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../resources/" class="md-tabs__link">
+      Resources
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SANS Multi Cloud Data Security Workshop" class="md-nav__button md-logo" aria-label="SANS Multi Cloud Data Security Workshop" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3 8 6v12h-5v-7H9v7H4V9l8-6Z"/></svg>
+
+    </a>
+    SANS Multi Cloud Data Security Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Workshop</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Workshop" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Workshop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/" class="md-nav__link">
+        AWS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Google Cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Google Cloud
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-a-google-cloud-project" class="md-nav__link">
+    Initialize a Google Cloud Project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-storage-bucket-and-upload-the-mock-data" class="md-nav__link">
+    Create a Storage Bucket and Upload the Mock Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-data-with-google-cloud-dlp" class="md-nav__link">
+    Inspect Data with Google Cloud DLP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refine-the-job" class="md-nav__link">
+    Refine the Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminate-cloud-resources-and-instance" class="md-nav__link">
+    Terminate Cloud Resources and Instance
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminate Cloud Resources and Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-storage-bucket" class="md-nav__link">
+    Delete Storage Bucket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shut-down-project" class="md-nav__link">
+    Shut Down Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-further" class="md-nav__link">
+    Exploring Further
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initialize-a-google-cloud-project" class="md-nav__link">
+    Initialize a Google Cloud Project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-storage-bucket-and-upload-the-mock-data" class="md-nav__link">
+    Create a Storage Bucket and Upload the Mock Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-data-with-google-cloud-dlp" class="md-nav__link">
+    Inspect Data with Google Cloud DLP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refine-the-job" class="md-nav__link">
+    Refine the Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminate-cloud-resources-and-instance" class="md-nav__link">
+    Terminate Cloud Resources and Instance
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminate Cloud Resources and Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-storage-bucket" class="md-nav__link">
+    Delete Storage Bucket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shut-down-project" class="md-nav__link">
+    Shut Down Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploring-further" class="md-nav__link">
+    Exploring Further
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="google-cloud">Google Cloud</h1>
+<h2 id="initialize-a-google-cloud-project">Initialize a Google Cloud Project</h2>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p>To guarantee that you will not accumulate bills after your free trial concludes, consider <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects#shutting_down_projects" rel="noopener" target="_blank">shutting down your Google Cloud project</a> at the conclusion of the workshop.</p>
+<p><strong>You must not use a cloud account with existing personal or corporate resources.</strong> We will be uploading sensitive files that should not be in production environments.</p>
+</div>
+<ol>
+<li>
+<p>Navigate to the <a href="https://cloud.google.com/" rel="noopener" target="_blank">GCP Console</a>.</p>
+</li>
+<li>
+<p>Create a new GCP account by pressing the <em>Get started for free</em> button.</p>
+</li>
+<li>
+<p>Enter your Google account's (email address or mobile number), press <strong>Next</strong>, and complete the sign-in process.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not have a Google account, press the <strong>Create Account</strong> button to register a new account.</p>
+</div>
+<p><img alt="" src="img/0001.png" /></p>
+</li>
+<li>
+<p>You may need to <strong>Activate</strong> your Google Cloud Platform free trial and accept the Google Cloud Platform Free Trial Terms of Service and fill out the Customer info form to complete the activation process.</p>
+</li>
+</ol>
+<h2 id="create-a-storage-bucket-and-upload-the-mock-data">Create a Storage Bucket and Upload the Mock Data</h2>
+<ol>
+<li>
+<p>In the Google Cloud console, type <strong>Cloud Storage</strong> in the search bar and click the first result:</p>
+<p><img alt="" src="img/go-to-cloud-storage.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create</strong>:</p>
+<p><img alt="" src="img/create-bucket.png" /></p>
+</li>
+<li>
+<p>Give the bucket a globally unique name, such as <em>sans-multicloud-data-workshop-**YOUR_NAME**</em>. If the resulting bucket name is more than 63 characters, please abbreviate. Then, click <strong>Create</strong>:</p>
+<p><img alt="" src="img/create-bucket-confirm.png" /></p>
+</li>
+<li>
+<p>Click <strong>Confirm</strong>:</p>
+<p><img alt="" src="img/public-access-confirm.png" /></p>
+</li>
+<li>
+<p>In the newly created bucket, click <strong>Upload Files</strong> and select the <em>MOCK_DATA*.csv</em> files generated earlier:</p>
+<p><img alt="" src="img/upload-files.png" /></p>
+</li>
+</ol>
+<h2 id="inspect-data-with-google-cloud-dlp">Inspect Data with Google Cloud DLP</h2>
+<ol>
+<li>
+<p>In the Google Cloud console, type <strong>DLP</strong> in the search bar and click the first result:</p>
+<p><img alt="" src="img/go-to-dlp.png" /></p>
+</li>
+<li>
+<p>Click <strong>Enable</strong> to enable the <em>Cloud Data Loss Prevention (DLP) API</em>:</p>
+<p><img alt="" src="img/enable-dlp.png" /></p>
+</li>
+<li>
+<p>Click <strong>Inspection</strong>:</p>
+<p><img alt="" src="img/inspection.png" /></p>
+</li>
+<li>
+<p>Click <strong>Create Job and Job Triggers</strong>:</p>
+<p><img alt="" src="img/create-job.png" /></p>
+</li>
+<li>
+<p>Give the job any name you want (e.g., Test), set the <em>Storage type</em> to Google Cloud Storage, type the name of your storage bucket in the <em>URL</em> field after the <code>gs://</code> set the <em>Percentage of included objects scanned within the bucket</em> to 100%, and click <strong>Create</strong>:</p>
+<p><img alt="" src="img/configure-job.png" /></p>
+</li>
+<li>
+<p>Click <strong>Confirm Create</strong>:</p>
+<p><img alt="" src="img/create-job-confirm.png" /></p>
+</li>
+<li>
+<p>Wait until the <strong>Pending</strong> status is replaced with <strong>Done</strong>. If desired, you can move onto another cloud provider in the workshop in the meantime. Then, analyze the results.</p>
+</li>
+</ol>
+<p>We can make a couple of interesting conclusions based on these results:</p>
+<ul>
+<li>Our first two spreadsheets contained 2,000 names (1,000 first names and 1,000 last names), but <strong>many more were detected</strong>. This indicates that there are some false positives.</li>
+<li>Most critically, <strong>Cloud DLP is not flagging <a href="https://www.cms.gov/medicare/coding/icd10">ICD-10 Diagnosis Codes</a> as sensitive</strong>. While <a href="https://revenuecycleadvisor.com/news-analysis/qa-are-patient-diagnoses-alone-considered-be-phi">these codes are not considered Personal Health Information (PHI) by itself</a>, coupled with names, this information is highly private.</li>
+</ul>
+<h2 id="refine-the-job">Refine the Job</h2>
+<p>Let us create a custom InfoType to detect the ICD-10 Diagnosis Codes in our second spreadsheet.</p>
+<ol>
+<li>
+<p>Create a new job with a different name, repeating all of the same steps, but after setting the <em>Percentage of included objects scanned within the bucket</em> to 100%, click <strong>Continue</strong>:</p>
+<p><img alt="" src="img/configure-job-continue.png" /></p>
+</li>
+<li>
+<p>Click <strong>Manage InfoTypes</strong>:</p>
+<p><img alt="" src="img/manage-infotypes.png" /></p>
+</li>
+<li>
+<p>Click <strong>Custom</strong>, then <strong>Add Custom InfoType</strong>:</p>
+<p><img alt="" src="img/create-custom-infotype.png" /></p>
+</li>
+<li>
+<p>Select the <strong>Regex expression</strong> <em>Type</em>, set the <em>InfoType</em> to <strong>ICD-10 Diagnosis Code</strong>, and paste the following (<a href="https://www.johndcook.com/blog/2019/05/05/regex_icd_codes/" rel="noopener" target="_blank">Source</a>) into the <strong>Regex pattern</strong> field:</p>
+<div class="highlight"><pre><span></span><code>[A-TV-Z][0-9][0-9AB]\.?[0-9A-TV-Z]{0,4}
+</code></pre></div>
+</li>
+<li>
+<p>Then, click <strong>Done</strong>:</p>
+<p><img alt="" src="img/create-custom-infotype-confirm.png" /></p>
+</li>
+<li>
+<p>Click <strong>Done</strong> again, then click <strong>Create</strong> and wait for the results. Did you get the results you expected?</p>
+</li>
+</ol>
+<h2 id="terminate-cloud-resources-and-instance">Terminate Cloud Resources and Instance</h2>
+<h3 id="delete-storage-bucket">Delete Storage Bucket</h3>
+<p>In the Google Cloud Console, return to Cloud Storage, check the checkbox next to the bucket used in this workshop, click <strong>Delete</strong>, and follow the given instructions:</p>
+<p><img alt="" src="img/delete-bucket.png" /></p>
+<h3 id="shut-down-project">Shut Down Project</h3>
+<p>To guarantee that you will not accumulate bills after your free trial concludes, consider <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects#shutting_down_projects" rel="noopener" target="_blank">shutting down your Google Cloud project</a> at the conclusion of the workshop. Alternatively, feel free to keep this account for future testing.</p>
+<h2 id="exploring-further">Exploring Further</h2>
+<p>Google Cloud provides this <a href="https://cloud.google.com/dlp/demo" rel="noopener" target="_blank">free demo</a> for Cloud DLP that does not require an active Google Cloud project. Consider giving this a try as well.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../azure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Azure" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Azure
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../resources/" class="md-footer__link md-footer__link--next" aria-label="Next: Resources" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Resources
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©2023 Brandon Evans
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+        <script src="../../js/jquery.fancybox.min.js"></script>
+      
+        <script src="../../js/workbook.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
